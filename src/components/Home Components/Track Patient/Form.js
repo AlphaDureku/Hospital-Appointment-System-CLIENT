@@ -59,6 +59,7 @@ export default function TrackMe() {
             setShow={setShow}
             OnSubmitHandler={OnSubmitHandler}
             exist={verify.exist}
+            setVerify={setVerify}
             loading={loading}
           />
         </div>

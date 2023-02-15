@@ -2,7 +2,12 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 export default function VerificationModal(props) {
-  const handleClose = () => props.setShow(false);
+  const handleClose = () => {
+    props.setShow(false);
+    setTimeout(() => {
+      props.setVerify((prev) => ({ ...prev, exist: false }));
+    }, 500);
+  };
 
   function check(exist) {
     if (exist) {
