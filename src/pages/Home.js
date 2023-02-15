@@ -46,7 +46,7 @@ export default function Home() {
       setSchedule(data.schedule);
       setTimeout(() => {
         setLoading(false);
-      }, 500);
+      }, 300);
     }
     get();
   }, [query]);

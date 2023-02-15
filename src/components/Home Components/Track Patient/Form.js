@@ -11,6 +11,7 @@ export default function TrackMe() {
   useEffect(() => {
     setLoading(true);
     async function get() {
+      console.log(email);
       const res = await axios.post("/trackMe", { email: email.email });
       if (res.data.data) {
         setVerify((prev) => ({ ...prev, exist: true }));
@@ -31,7 +32,6 @@ export default function TrackMe() {
   function OnSubmitHandler(event) {
     event.preventDefault();
     setShow(true);
-    setEmail({ email: "" });
     setSubmit(!submit);
   }
 
