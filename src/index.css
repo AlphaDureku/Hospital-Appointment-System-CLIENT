@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat', 'sans-serif';
+    font-family: 'Source Sans Pro', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -7,12 +7,75 @@ body {
 }
 
 
-/*Card Container */
+/*Search Form*/
 
-.center {
+.searchForm-container {
     display: flex;
+    flex-direction: column;
+    background-color: #def4fc;
     justify-content: center;
     align-items: center;
+}
+
+.tagtitle {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.form-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.form-search>* {
+    margin: 0 5px;
+}
+
+.form-search>input,
+select {
+    text-align: center;
+    width: 300px !important;
+    border-color: rgba(56, 132, 64, 1) !important;
+    font-size: 15px !important;
+}
+
+.Search,
+.Clear {
+    border-radius: 40px;
+    padding: 5px 20px;
+}
+
+.Search {
+    background-color: #24B7E9;
+    border: none;
+}
+
+.Clear {
+    border: none;
+    background-color: #d2302c;
+}
+
+.Clear:hover {
+    background-color: #c71e00;
+}
+
+
+/*Card Container */
+
+.card-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 2% auto;
+    padding: 25px 0;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 8px;
 }
 
 .grid-container {
@@ -44,7 +107,6 @@ body {
     border-radius: 8px;
     margin: 10px;
     padding: 20px;
-    height: 175px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
@@ -76,16 +138,12 @@ body {
 
 .doctor-flexbox-Info .Lname {
     font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.doctor-flexbox-Info .Fname {
-    margin-bottom: 30px;
     font-size: 1.1rem;
 }
 
-.doctor-flexbox-Info {
-    inline-size: max-content;
+.doctor-flexbox-Info .Fname {
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 .HMO_choosedoctor {
@@ -104,7 +162,7 @@ body {
 .HMO_Accreditation {
     font-weight: 600;
     font-size: 0.9rem;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .doctor-flexbox-Info .HMO_Accreditation .HMO_Head {
@@ -131,7 +189,121 @@ body {
     font-weight: bold;
 }
 
+.header {
+    font-size: 1.1rem;
+}
+
 .sched {
     font-weight: 600;
     font-size: 0.75rem;
+}
+
+.notFound {
+    font-size: 3rem;
+}
+
+
+/*Track Me*/
+
+.form-track {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-track input {
+    text-align: center;
+    width: 800px !important;
+    font-size: 14px !important;
+    padding: 5px;
+}
+
+.Search-track {
+    margin: 20px 0;
+    border: none;
+    border-radius: 40px;
+    padding: 5px 20px;
+    background-color: #24B7E9;
+}
+
+.otp-input {
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    /*Seach Form*/
+    col-1 .tagtitle {
+        font-size: 25px;
+    }
+    .form-search {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 20px;
+    }
+    .search-responsive {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .form-search>input {
+        width: 150px !important;
+        margin: 5px;
+        font-size: 14px !important;
+    }
+    .form-search>select {
+        width: 311px !important;
+        margin: 5px;
+        font-size: 14px !important;
+    }
+    .Clear,
+    .Search {
+        font-size: 15px !important;
+    }
+    /*Card-Container*/
+    .card-container {
+        height: auto;
+        width: 90%;
+        margin: 5% auto;
+    }
+    .doctor-flexbox-container {
+        border: 1px solid #24B7E9;
+        border-radius: 8px;
+        margin: 10px;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    .doctor-flexbox-Info .Lname {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    .doctor-flexbox-Info .Fname {
+        margin-bottom: 8px;
+        font-size: 0.85rem;
+    }
+    .doctor-flexbox-Info .HMO_Accreditation .HMO_Head {
+        font-size: 0.9rem;
+    }
+    .doctor-flexbox-Info .specialization,
+    .HMO_Accreditation {
+        font-weight: 600;
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+    }
+    .notFound {
+        margin: 2%;
+    }
+    /*Track Me*/
+    .form-track input {
+        text-align: center;
+        width: 350px !important;
+        font-size: 14px !important;
+        padding: 5px;
+    }
+    .Search-track {
+        font-size: 14px;
+    }
+    .tagtitle--p {
+        font-size: 14px;
+        text-align: center;
+    }
 }
