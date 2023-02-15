@@ -21,7 +21,7 @@ export default function Form(props) {
     props.setQuery(formData);
   }
   function CleanUp() {
-    setFormData({ Fname: "", Lname: "" });
+    setFormData({ Fname: "", Lname: "", specialization: "", HMO: "" });
     props.setQuery({ Fname: "", Lname: "", specialization: "", HMO: "" });
   }
   // *Process Inputs*
@@ -72,8 +72,9 @@ export default function Form(props) {
           className="form-select search-responsive"
           name="specialization"
           onChange={OnChangeHandler}
+          value={formData.specialization}
         >
-          <option value={formData.specialization} defaultValue hidden>
+          <option value="" defaultValue hidden>
             Select Specialization
           </option>
           {setSelectSpecialization()}
@@ -82,8 +83,9 @@ export default function Form(props) {
           className="form-select search-responsive"
           name="HMO"
           onChange={OnChangeHandler}
+          value={formData.HMO}
         >
-          <option value={formData.HMO} defaultValue hidden>
+          <option value="" defaultValue hidden>
             Select HMO Accreditation
           </option>
           {setSelectHMO()}

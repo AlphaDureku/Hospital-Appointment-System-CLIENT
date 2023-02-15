@@ -29,7 +29,6 @@ export default function Home() {
     }
     get();
   }, []);
-
   //Update Seach Query
   useEffect(() => {
     async function get() {
@@ -37,7 +36,9 @@ export default function Home() {
       const res = await axios.get(
         `/doctors/search/?Fname=${query.get("Fname")}&Lname=${query.get(
           "Lname"
-        )}&specialization${query.get("specialization")}&HMO${query.get("HMO")}`
+        )}&specialization=${query.get("specialization")}&HMO=${query.get(
+          "HMO"
+        )}`
       );
 
       const { data } = res.data;
