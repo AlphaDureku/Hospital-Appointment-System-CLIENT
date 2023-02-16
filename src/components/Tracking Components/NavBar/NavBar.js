@@ -1,7 +1,9 @@
 export default function NavBar() {
   return (
     <nav className="Tracking--NavBar">
-      <img src="/images/navbar.png" className="NavBar--logo" alt=""></img>
+      <a href="/">
+        <img src="/images/navbar.png" className="NavBar--logo" alt=""></img>
+      </a>
       <img
         alt=""
         src="/images/headerwave.png"

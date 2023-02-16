@@ -1,3 +1,5 @@
+import Card from "./LandingPage--Card";
+
 export default function LandingPage() {
   return (
     <>
@@ -11,18 +13,11 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="patient-list_Container">
-            <div className="patient-card">
-              <div className="patient-name">Mark Templanza</div>
-              <div className="patient-gender">Patient (M)</div>
-              <div className="card-button">
-                <button className="btn View-btn">View Appointments</button>
-                <button class="btn Edit-btn">Edit Personal Info</button>
-              </div>
-            </div>
+            <Card />
           </div>
           <p className="end-title">
             With your registered email address, we were able to locate
-            <span>5</span> record/s.
+            <span> 5</span> record/s.
           </p>
           <p className="end-title">
             click an option to <span style={{ color: "red" }}>continue</span>

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Footer from "../components/Tracking Components/Footer/Footer";
-import EditInfo from "../components/Tracking Components/Main Content/Main Content--Sub Components/EditInfo";
-import LandingPage from "../components/Tracking Components/Main Content/Main Content--Sub Components/LandingPage";
-import ViewAppointments from "../components/Tracking Components/Main Content/Main Content--Sub Components/ViewAppointments";
+import EditInfo from "../components/Tracking Components/Main Content/EditInfo";
+import LandingPage from "../components/Tracking Components/Main Content/LandingPage";
+import ViewAppointments from "../components/Tracking Components/Main Content/ViewAppointments";
 import NavBar from "../components/Tracking Components/NavBar/NavBar";
 
 export default function Track() {

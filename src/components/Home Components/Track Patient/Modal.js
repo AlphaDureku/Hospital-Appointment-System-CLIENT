@@ -1,10 +1,11 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function VerificationModal(props) {
   const [enteredOTP, setEnteredOTP] = useState("");
   const [error, setError] = useState(false);
-
+  let navigate = useNavigate();
   const handleOnChange = (event) => {
     const { value } = event.target;
     setEnteredOTP(value);
@@ -23,7 +24,7 @@ export default function VerificationModal(props) {
     if (enteredOTP == props.OTP) {
       props.setVerify((prev) => ({ ...prev, verified: true }));
       //Send request that a user is verified create a session for that patient
-      console.log("Sent user ID" + props.user_ID);
+      navigate("/my-appointments");
       return;
     }
     setError(true);
@@ -55,7 +56,7 @@ export default function VerificationModal(props) {
               <label className="label pt-3">OTP is valid for 3 minutes</label>
               <br></br>
               {error && (
-                <label className="label pt-3" style={{ color: "red" }}>
+                <label className="shake-error" style={{ color: "red" }}>
                   Wrong OTP
                 </label>
               )}
