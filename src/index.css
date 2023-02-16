@@ -1,10 +1,13 @@
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Montserrat', 'sans-serif';
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-size: 20px;
 }
+
+
+/* HOME CSS */
 
 
 /*Search Form*/
@@ -231,6 +234,9 @@ select {
     text-align: center;
 }
 
+
+/* Home Page Media Query */
+
 @media only screen and (max-width: 600px) {
     /*Seach Form*/
     col-1 .tagtitle {
@@ -289,6 +295,17 @@ select {
         font-size: 0.8rem;
         margin-bottom: 2px;
     }
+    .header {
+        font-size: 0.95rem;
+        margin: 0 0 5px 0 !important;
+    }
+    .doctor-flexbox-Avail {
+        top: 8%;
+        left: 51%;
+    }
+    .sched {
+        font-size: 0.6rem;
+    }
     .notFound {
         margin: 2%;
     }
@@ -305,5 +322,154 @@ select {
     .tagtitle--p {
         font-size: 14px;
         text-align: center;
+    }
+}
+
+
+/* Book Appointment CSS */
+
+.Tracking--NavBar {
+    width: 100%;
+    position: relative;
+}
+
+.NavBar--background {
+    width: 100%;
+    height: 10vh;
+}
+
+.NavBar--logo {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+}
+
+.Tracking--Footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.Tracking--Footer img {
+    width: 100%;
+}
+
+.Track--main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.Track--sub_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 62%;
+}
+
+.sub-title {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.Track--tagtitle {
+    color: rgba(56, 132, 64, 1);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.patient-list_Container {
+    padding: 2% 3.5%;
+    overflow-y: scroll;
+    background: rgba(217, 217, 217, 0.3);
+    border-radius: 10px;
+    height: 60vh;
+    width: 90%;
+    margin-bottom: 15px;
+}
+
+.patient-card {
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px 40px;
+    border: 1px solid black;
+}
+
+.patient-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 12px 0;
+}
+
+.patient-gender {
+    font-size: 16px;
+    font-weight: 100;
+    margin-bottom: 12px;
+}
+
+.View-btn,
+.Edit-btn {
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 4px 12px;
+}
+
+.View-btn {
+    background-color: #388440;
+    margin: 0 20px 0 0;
+}
+
+.Edit-btn {
+    background-color: #24B7E9;
+}
+
+
+/* Book Appointment Media Query*/
+
+@media only screen and (max-width: 600px) {
+    .Track--sub_container {
+        width: 100%;
+        height: 75vh;
+    }
+    .sub-title,
+    .end-title {
+        font-size: 15px;
+        text-align: center;
+        padding: 5px;
+    }
+    .patient-list_Container {
+        height: 50vh;
+        width: 90%;
+        margin-bottom: 12px;
+    }
+    .patient-card {
+        padding: 8px 20px;
+    }
+    .patient-name {
+        font-size: 15px;
+        margin: 0 0 8px 0;
+    }
+    .patient-gender {
+        font-size: 14px;
+        font-weight: 100;
+        margin-bottom: 12px;
+    }
+    .card-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .View-btn,
+    .Edit-btn {
+        font-size: 10px;
+        padding: 5px 11px;
     }
 }

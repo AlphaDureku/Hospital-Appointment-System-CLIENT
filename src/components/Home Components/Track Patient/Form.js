@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import VerificationModal from "./Modal";
 export default function TrackMe() {
   const [user, setUser] = useState({ email: "", user_ID: "" });
@@ -38,7 +38,21 @@ export default function TrackMe() {
     setShow(true);
     setSubmit(!submit);
   }
-
+  const modalElement = useMemo(() => {
+    return (
+      <VerificationModal
+        show={show}
+        setShow={setShow}
+        OnSubmitHandler={OnSubmitHandler}
+        exist={verify.exist}
+        setVerify={setVerify}
+        loading={loading}
+        OTP={verify.otp}
+        user_ID={user.user_ID}
+      />
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [show, loading]);
   return (
     <div className="searchForm-container">
       <div className="tagtitle ">Tracker</div>
@@ -57,18 +71,7 @@ export default function TrackMe() {
           onChange={OnChangeHandler}
           required
         ></input>
-        <div>
-          <VerificationModal
-            show={show}
-            setShow={setShow}
-            OnSubmitHandler={OnSubmitHandler}
-            exist={verify.exist}
-            setVerify={setVerify}
-            loading={loading}
-            OTP={verify.otp}
-            user_ID={user.user_ID}
-          />
-        </div>
+        <div>{modalElement}</div>
       </form>
     </div>
   );

@@ -9,6 +9,7 @@ export default function VerificationModal(props) {
     const { value } = event.target;
     setEnteredOTP(value);
   };
+
   const handleClose = () => {
     props.setShow(false);
     setEnteredOTP("");
@@ -28,7 +29,6 @@ export default function VerificationModal(props) {
     setError(true);
     return;
   };
-  console.log(enteredOTP);
   function check(exist) {
     if (exist) {
       return (
