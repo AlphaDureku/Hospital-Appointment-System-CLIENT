@@ -1,14 +1,34 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
+import { useState } from "react";
 export default function VerificationModal(props) {
+  const [enteredOTP, setEnteredOTP] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleOnChange = (event) => {
+    const { value } = event.target;
+    setEnteredOTP(value);
+  };
   const handleClose = () => {
     props.setShow(false);
+    setEnteredOTP("");
+    setError(false);
     setTimeout(() => {
       props.setVerify((prev) => ({ ...prev, exist: false }));
     }, 500);
   };
 
+  const handleVerification = () => {
+    if (enteredOTP == props.OTP) {
+      props.setVerify((prev) => ({ ...prev, verified: true }));
+      //Send request that a user is verified create a session for that patient
+      console.log("Sent user ID" + props.user_ID);
+      return;
+    }
+    setError(true);
+    return;
+  };
+  console.log(enteredOTP);
   function check(exist) {
     if (exist) {
       return (
@@ -24,13 +44,25 @@ export default function VerificationModal(props) {
               <br></br>
               <p>Please Enter (6) digit code to complete your verification.</p>
               <div className=" otp-form  container-fluid text-center">
-                <input type="text" className="form-control otp-input" />
+                <input
+                  type="text"
+                  className="form-control otp-input"
+                  name="enteredOTP"
+                  onChange={handleOnChange}
+                  value={enteredOTP}
+                />
               </div>
               <label className="label pt-3">OTP is valid for 3 minutes</label>
+              <br></br>
+              {error && (
+                <label className="label pt-3" style={{ color: "red" }}>
+                  Wrong OTP
+                </label>
+              )}
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button className="Search" onClick={handleClose}>
+            <Button className="Search" onClick={handleVerification}>
               Verify
             </Button>
             <Button className="Clear" type="submit" onClick={handleClose}>

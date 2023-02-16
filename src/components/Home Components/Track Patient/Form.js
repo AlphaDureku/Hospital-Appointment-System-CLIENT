@@ -1,32 +1,36 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import VerificationModal from "./Verification Modal";
+import VerificationModal from "./Modal";
 export default function TrackMe() {
-  const [email, setEmail] = useState({ email: "" });
+  const [user, setUser] = useState({ email: "", user_ID: "" });
   const [show, setShow] = useState(false);
   const [submit, setSubmit] = useState(false);
-  const [verify, setVerify] = useState({ exist: false, verified: false });
+  const [verify, setVerify] = useState({
+    exist: false,
+    otp: "",
+    verified: false,
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     async function get() {
-      console.log(email);
-      const res = await axios.post("/trackMe", { email: email.email });
-      if (res.data.data) {
-        setVerify((prev) => ({ ...prev, exist: true }));
+      const res = await axios.post("/trackMe", { email: user.email });
+      if (res.data.data.exist) {
+        setVerify((prev) => ({ ...prev, exist: true, otp: res.data.data.OTP }));
+        setUser((prev) => ({ ...prev, user_ID: res.data.data.user_ID }));
       }
-      console.log(verify);
       setTimeout(() => {
         setLoading(false);
       }, 2000);
     }
     get();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submit]);
 
   function OnChangeHandler(event) {
     const { name, value } = event.target;
-    setEmail({ [name]: value });
+    setUser((prev) => ({ ...prev, [name]: value }));
   }
 
   function OnSubmitHandler(event) {
@@ -49,7 +53,7 @@ export default function TrackMe() {
           className="form-control"
           placeholder="Enter your registered email address"
           name="email"
-          value={email.email}
+          value={user.email}
           onChange={OnChangeHandler}
           required
         ></input>
@@ -61,6 +65,8 @@ export default function TrackMe() {
             exist={verify.exist}
             setVerify={setVerify}
             loading={loading}
+            OTP={verify.otp}
+            user_ID={user.user_ID}
           />
         </div>
       </form>

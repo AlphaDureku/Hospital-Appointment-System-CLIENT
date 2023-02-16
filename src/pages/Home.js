@@ -44,9 +44,7 @@ export default function Home() {
       const { data } = res.data;
       setdoctors(data.result);
       setSchedule(data.schedule);
-      setTimeout(() => {
-        setLoading(false);
-      }, 300);
+      setLoading(false);
     }
     get();
   }, [query]);
