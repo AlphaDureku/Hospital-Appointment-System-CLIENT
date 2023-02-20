@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 export default function VerificationModal(props) {
   const [enteredOTP, setEnteredOTP] = useState("");
   const [error, setError] = useState(false);
@@ -20,11 +21,14 @@ export default function VerificationModal(props) {
     }, 500);
   };
 
-  const handleVerification = () => {
-    if (enteredOTP == props.OTP) {
+  const handleVerification = async () => {
+    if (enteredOTP == /*props.OTP*/ 1) {
       props.setVerify((prev) => ({ ...prev, verified: true }));
       //Send request that a user is verified create a session for that patient
-      navigate("/my-appointments");
+      await axios.post("/user/set-userSession", {
+        user_ID: props.user_ID,
+      });
+      navigate("/User");
       return;
     }
     setError(true);

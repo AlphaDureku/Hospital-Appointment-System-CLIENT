@@ -11,8 +11,8 @@ export default function Track() {
       <NavBar />
       <Routes>
         <Route index element={<LandingPage />} />
-        <Route path="Edit-Info" element={<EditInfo />} />
-        <Route path="View-Appointments" element={<ViewAppointments />} />
+        <Route path="Edit-Info/:id" element={<EditInfo />} />
+        <Route path="View-Appointments/:id" element={<ViewAppointments />} />
       </Routes>
       <Footer />
     </>

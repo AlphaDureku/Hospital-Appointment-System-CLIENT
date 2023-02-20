@@ -1,6 +1,19 @@
 import Card from "./LandingPage--Card";
-
+import axios from "axios";
+import { useState, useEffect } from "react";
 export default function LandingPage() {
+  const [count, setCount] = useState(0);
+  const [patientList, setPatientList] = useState([]);
+
+  useEffect(() => {
+    const getPatients = async () => {
+      const response = await axios.get("/user/get-patients");
+      const { data } = response.data;
+      setCount(data.count);
+      setPatientList(data.patientList);
+    };
+    getPatients();
+  }, []);
   return (
     <>
       <div className="Track--main_container">
@@ -13,11 +26,11 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="patient-list_Container">
-            <Card />
+            <Card patientList={patientList} />
           </div>
           <p className="end-title">
-            With your registered email address, we were able to locate
-            <span> 5</span> record/s.
+            With your registered email address, we were able to locate {count}{" "}
+            {count > 1 ? "records" : "record"}
           </p>
           <p className="end-title">
             click an option to <span style={{ color: "red" }}>continue</span>

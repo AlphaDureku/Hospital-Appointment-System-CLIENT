@@ -6,11 +6,8 @@ export default function Card(props) {
     return props.schedule.map((sched, index) => {
       return (
         doctorID === sched.doctor_ID && (
-          <div className="doctor-flexbox-Avail" key={index}>
-            <div className="header">Availability</div>
-            <div className="sched">
-              {sched.day} | {sched.start} - {sched.end}
-            </div>
+          <div className="sched" key={index}>
+            {sched.day} | {sched.start} - {sched.end}
           </div>
         )
       );
@@ -35,7 +32,10 @@ export default function Card(props) {
             {items.HMO_Name}
           </div>
         </div>
-        {getAssignedSched(items.doctor_ID)}
+        <div className="doctor-flexbox-Avail">
+          <div className="header">Availability</div>
+          {getAssignedSched(items.doctor_ID)}
+        </div>
       </div>
     </div>
   ));
