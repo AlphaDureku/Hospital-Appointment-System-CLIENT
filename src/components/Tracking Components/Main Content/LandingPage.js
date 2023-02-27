@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 export default function LandingPage() {
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [patientList, setPatientList] = useState([]);
 
   useEffect(() => {
@@ -13,6 +14,9 @@ export default function LandingPage() {
       setPatientList(data.patientList);
     };
     getPatients();
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
   }, []);
   return (
     <>
@@ -26,7 +30,7 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="patient-list_Container">
-            <Card patientList={patientList} />
+            <Card patientList={patientList} loading={loading} />
           </div>
           <p className="end-title">
             With your registered email address, we were able to locate {count}{" "}

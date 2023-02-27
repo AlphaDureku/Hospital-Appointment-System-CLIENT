@@ -8,13 +8,15 @@ import NavBar from "../components/Tracking Components/NavBar/NavBar";
 export default function Track() {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route index element={<LandingPage />} />
-        <Route path="Edit-Info/:id" element={<EditInfo />} />
-        <Route path="View-Appointments/:id" element={<ViewAppointments />} />
-      </Routes>
-      <Footer />
+      <div className="wrapper">
+        <NavBar />
+        <Routes>
+          <Route index element={<LandingPage />} />
+          <Route path="Edit-Info/:id" element={<EditInfo />} />
+          <Route path="View-Appointments/:id" element={<ViewAppointments />} />
+        </Routes>
+        <Footer />
+      </div>
     </>
   );
 }

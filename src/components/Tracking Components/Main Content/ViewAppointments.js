@@ -4,7 +4,7 @@ export default function ViewAppointments() {
   return (
     <>
       <div className="View-appointment_Main-Container">
-        <div className="">My Appointments</div>
+        <div className="ViewAppointments-header">My Appointments</div>
         <Appointments />
       </div>
     </>

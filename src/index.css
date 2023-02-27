@@ -7,10 +7,10 @@ body {
 }
 
 
-/* HOME CSS */
+/*! HOME CSS */
 
 
-/*Search Form*/
+/*!Search Form*/
 
 .searchForm-container {
     display: flex;
@@ -68,7 +68,7 @@ select {
 }
 
 
-/*Card Container */
+/*!Card Container */
 
 .card-container {
     display: flex;
@@ -205,7 +205,13 @@ select {
 }
 
 
-/*Track Me*/
+/*!Track Me*/
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 .form-track {
     padding: 10px;
@@ -234,13 +240,13 @@ select {
 }
 
 
-/* Home Page Media Query */
+/*! Home Page Media Query */
 
 @media only screen and (max-width: 700px) {
      :root {
         --font-size: 12px
     }
-    /*Seach Form*/
+    /*!Seach Form*/
     col-1 .tagtitle {
         font-size: 25px;
     }
@@ -267,7 +273,7 @@ select {
     .Search {
         font-size: var(--font-size) !important;
     }
-    /*Card-Container*/
+    /*!Card-Container*/
     .card-container {
         height: auto;
         width: 90%;
@@ -311,7 +317,7 @@ select {
     .notFound {
         margin: 2%;
     }
-    /*Track Me*/
+    /*!Track Me*/
     .form-track input {
         text-align: center;
         width: 350px !important;
@@ -328,7 +334,7 @@ select {
 }
 
 
-/* Book Appointment CSS */
+/*!Book Appointment CSS */
 
 .Tracking--NavBar {
     width: 100%;
@@ -353,9 +359,8 @@ select {
 }
 
 .Tracking--Footer {
-    position: absolute;
     width: 100%;
-    bottom: 0;
+    margin-top: auto;
     overflow: hidden;
 }
 
@@ -381,19 +386,20 @@ select {
 
 .sub-title {
     margin-top: 15px;
-    font-size: 18px;
     font-weight: 500;
 }
 
-.end-title {
-    font-size: 18px;
+.end-title,
+.sub-title {
+    font-size: min(18px, 3.5vw);
+    text-align: center;
 }
 
 .Track--tagtitle {
     color: rgba(56, 132, 64, 1);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    font-size: 25px;
+    font-size: min(25px, 6vw);
     font-weight: 600;
     margin-top: 10px;
 }
@@ -406,6 +412,10 @@ select {
     height: 63vh;
     width: 100%;
     margin-bottom: 15px;
+}
+
+.LandingPage--Loading-Card {
+    border-radius: 8px;
 }
 
 .patient-card {
@@ -435,6 +445,8 @@ select {
     border-radius: 8px;
     font-weight: 500;
     padding: 4px 12px;
+    font-size: min(15px, 2.5vw);
+    white-space: nowrap;
 }
 
 .View-btn {
@@ -447,7 +459,7 @@ select {
 }
 
 
-/* Book Appointment Media Query*/
+/*! Track Appointment Media Query*/
 
 @media (min-width: 601px) and (max-width: 750px) {
     .Track--sub_container {
@@ -472,12 +484,12 @@ select {
         width: 100%;
         height: 75vh;
     }
-    .sub-title,
+    /* .sub-title,
     .end-title {
         font-size: 15px;
         text-align: center;
         padding: 5px;
-    }
+    } */
     .patient-list_Container {
         height: 50vh;
         width: 90%;
@@ -500,22 +512,22 @@ select {
         justify-content: center;
         align-items: center;
     }
-    .View-btn,
-    .Edit-btn {
-        font-size: 10px;
-        padding: 5px 11px;
-    }
 }
 
 
-/* View Appointments CSS */
+/*! View Appointments CSS */
+
+.ViewAppointments-header {
+    font-weight: 600;
+    color: #388440;
+    font-size: min(28px, 5vw);
+}
 
 .View-appointment_Main-Container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
 }
 
 .View-appointment_Main-Container>div:nth-child(1) {
@@ -525,27 +537,131 @@ select {
 .Appointment_Container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    width: min(90%, 1400px);
+    width: min(100%, 1000px);
     height: 100%;
-    overflow-y: scroll;
     border-radius: 12px;
     padding: 1rem;
 }
 
 .appointment-card {
-    height: 12vh;
+    height: fit-content;
     border: 1px solid grey;
     border-radius: 8px;
     margin-bottom: 10px;
+    display: flex;
 }
 
-.appointment-item {
-    margin: 10px 0;
+.appointment-card--patient-info {
+    margin-left: 2%;
+}
+
+.appointment-card--patient-info>div,
+.appointment-card--doctor-info>div {
+    padding: 5px 0;
+}
+
+.appointment-card--doctor-info {
+    text-align: right;
+}
+
+.card--patient-name,
+.card--doctor-name {
+    font-weight: 600;
+    font-size: min(1.3rem, 3.6vw)
+}
+
+.card--appointment-header,
+.card--doctor-spec {
+    font-size: min(1rem, 3.3vw)
+}
+
+.appointment-date {
+    font-size: min(0.9rem, 3.1vw);
+    color: green;
+    font-weight: 600;
+}
+
+.appointment-card>div {
+    padding: 1.5% 2%;
+}
+
+.appointment-card>div:nth-child(1) {
+    width: 70%
+}
+
+.appointment-status {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.grey {
+    color: grey;
+    font-size: min(20px, 4vw);
+}
+
+.blue {
+    color: blue;
+    font-size: min(20px, 4vw);
+}
+
+.red {
+    color: red;
+    font-size: min(20px, 4vw);
+}
+
+.green {
+    color: green;
+    font-size: min(20px, 4vw);
+}
+
+.hr {
+    display: none;
 }
 
 
-/* Shake Animation */
+/*! View Appointments Media Query */
+
+@media only screen and (max-width: 600px) {
+    .View-appointment_Main-Container {
+        margin: auto 0;
+    }
+    .appointment-card {
+        flex-direction: column;
+    }
+    .appointment-card>div:nth-child(1) {
+        width: 100%;
+    }
+    .appointment-card--patient-info {
+        text-align: center;
+        margin: 0;
+    }
+    .appointment-card--doctor-info {
+        text-align: center;
+    }
+    .hr {
+        display: block;
+    }
+    /* .appointment-card>div:nth-child(1) {
+        width: 52%
+    }
+    .appointment-status {
+        font-size: 1.1rem;
+    }
+    .card--patient-name,
+    .card--doctor-name {
+        font-size: 0.95rem;
+    }
+    .card--appointment-header,
+    .card--doctor-spec {
+        font-size: 0.8rem;
+    }
+    .appointment-date {
+        font-size: 0.7rem;
+    } */
+}
+
+
+/*! Shake Animation */
 
 .shake-error {
     animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;

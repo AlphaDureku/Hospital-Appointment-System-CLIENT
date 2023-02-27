@@ -1,4 +1,10 @@
+import Loading from "./LandingPage--Card--Loading";
+
 export default function Card(props) {
+  if (props.loading) {
+    return <Loading />;
+  }
+
   const mapPatientElements = props.patientList.map((item, index) => {
     return (
       <div className="patient-card" key={index}>
